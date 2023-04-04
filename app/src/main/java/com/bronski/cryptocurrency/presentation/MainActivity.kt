@@ -8,6 +8,7 @@ import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
+import com.bronski.cryptocurrency.presentation.coinListScreen.components.CoinListScreen
 import com.bronski.cryptocurrency.presentation.ui.theme.CryptocurrencyTheme
 
 class MainActivity : ComponentActivity() {
