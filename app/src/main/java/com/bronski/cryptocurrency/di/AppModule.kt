@@ -1,9 +1,9 @@
 package com.bronski.cryptocurrency.di
 
-import com.bronski.cryptocurrency.common.Constants.BASE_URL
-import com.bronski.cryptocurrency.data.remote.CoinPaprikaApi
-import com.bronski.cryptocurrency.data.repository.CoinRepositoryImpl
-import com.bronski.cryptocurrency.domain.repository.CoinRepository
+import com.kbcoding.cryptocurrency.api.CoinPaprikaApi
+import com.kbcoding.cryptocurrency.core.common.Constants.BASE_URL
+import com.kbcoding.cryptocurrency.data.repository.CoinRepositoryImpl
+import com.kbcoding.cryptocurrency.domain.repository.CoinRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -39,6 +39,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideCoinRepository(api: CoinPaprikaApi): CoinRepository = CoinRepositoryImpl(api)
+    fun provideCoinRepository(api: CoinPaprikaApi): CoinRepository {
+        return CoinRepositoryImpl(api)
+    }
 
 }

@@ -51,35 +51,16 @@ android {
 dependencies {
 
     // Compose dependencies
-    implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.navigation.compose)
-    implementation(libs.google.accompanist.flowlayout)
-
-    // Coroutines
-    implementation(libs.kotlinx.coroutines.core)
-    implementation(libs.kotlinx.coroutines.android)
-
-    // Coroutine Lifecycle Scopes
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-
-    // Retrofit
-    implementation(libs.retrofit2)
-    implementation(libs.retrofit2.converter)
-    implementation(libs.okhttp)
-    implementation(libs.okhttp.interceptor)
 
     // Hilt
     implementation(libs.hilt)
     kapt(libs.hilt.compiler)
-    implementation(libs.hilt.navigation.compose)
 
-    implementation(libs.androidx.core.ktx)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.activity.compose)
-    implementation(libs.androidx.compose.ui)
-    implementation(libs.androidx.compose.ui.tooling.preview)
-    implementation(libs.androidx.compose.material)
+    // Retrofit
+    compileOnly(libs.retrofit2)
+    compileOnly(libs.retrofit2.converter)
+    compileOnly(libs.okhttp.interceptor)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
@@ -87,4 +68,11 @@ dependencies {
 
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+
+    implementation(projects.core.common)
+    implementation(projects.core.presentation)
+    implementation(projects.api)
+    implementation(projects.data)
+    implementation(projects.features.coinList)
+    implementation(projects.features.coinDetail)
 }

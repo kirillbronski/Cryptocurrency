@@ -11,9 +11,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.bronski.cryptocurrency.presentation.coinDetailScreen.components.CoinDetailScreen
-import com.bronski.cryptocurrency.presentation.coinListScreen.components.CoinListScreen
-import com.bronski.cryptocurrency.presentation.ui.theme.CryptocurrencyTheme
+import com.kbcoding.cryptocurrency.core.presentation.Screen
+import com.kbcoding.cryptocurrency.core.presentation.ui.theme.CryptocurrencyThemeNew
+import com.kbcoding.cryptocurrency.features.coindetail.presentation.coinDetailScreen.components.CoinDetailScreen
+import com.kbcoding.cryptocurrency.fetures.coinlist.presentation.coinListScreen.components.CoinListScreen
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -21,7 +22,7 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            CryptocurrencyTheme {
+            CryptocurrencyThemeNew {
                 Surface(color = MaterialTheme.colors.background) {
                     val navController = rememberNavController()
                     NavHost(
@@ -31,7 +32,9 @@ class MainActivity : ComponentActivity() {
                         composable(
                             route = Screen.CoinListScreen.route
                         ) {
-                            CoinListScreen(navController = navController)
+                            CoinListScreen(
+                                navController = navController
+                            )
                         }
                         composable(
                             route = Screen.CoinDetailScreen.route + "/{coinId}"
@@ -53,7 +56,7 @@ fun Greeting(name: String) {
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
-    CryptocurrencyTheme {
+    CryptocurrencyThemeNew {
         Greeting("Android")
     }
 }
