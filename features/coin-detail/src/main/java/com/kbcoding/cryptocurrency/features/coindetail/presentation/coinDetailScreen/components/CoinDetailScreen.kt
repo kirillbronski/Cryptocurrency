@@ -1,5 +1,6 @@
 package com.kbcoding.cryptocurrency.features.coindetail.presentation.coinDetailScreen.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -16,11 +17,12 @@ import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import com.kbcoding.cryptocurrency.features.coindetail.presentation.coinDetailScreen.CoinDetailViewModel
 
 @Composable
 fun CoinDetailScreen(
-
+    navController: NavController,
     viewModel: CoinDetailViewModel = hiltViewModel()
 ) {
     val state = viewModel.state.value
@@ -47,6 +49,9 @@ fun CoinDetailScreen(
                             modifier = Modifier
                                 .align(CenterVertically)
                                 .weight(2f)
+                                .clickable {
+                                    navController.popBackStack()
+                                }
                         )
                     }
                     Spacer(modifier = Modifier.height(15.dp))

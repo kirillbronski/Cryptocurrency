@@ -2,8 +2,6 @@ package com.bronski.cryptocurrency.di
 
 import com.kbcoding.cryptocurrency.api.CoinPaprikaApi
 import com.kbcoding.cryptocurrency.core.common.Constants.BASE_URL
-import com.kbcoding.cryptocurrency.data.repository.CoinRepositoryImpl
-import com.kbcoding.cryptocurrency.domain.repository.CoinRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -37,10 +35,10 @@ object AppModule {
         return OkHttpClient().newBuilder().addInterceptor(logging).build()
     }
 
-    @Provides
-    @Singleton
-    fun provideCoinRepository(api: CoinPaprikaApi): CoinRepository {
-        return CoinRepositoryImpl(api)
-    }
+//    @Provides
+//    @Singleton
+//    fun provideCoinRepository(api: CoinPaprikaApi): CoinRepository {
+//        return CoinRepositoryImpl(api)
+//    }
 
 }
