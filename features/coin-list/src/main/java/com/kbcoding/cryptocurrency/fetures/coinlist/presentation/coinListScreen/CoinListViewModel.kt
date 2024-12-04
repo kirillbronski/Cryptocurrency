@@ -1,22 +1,21 @@
 package com.kbcoding.cryptocurrency.fetures.coinlist.presentation.coinListScreen
 
-import androidx.compose.runtime.State
-import androidx.compose.runtime.mutableStateOf
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.kbcoding.cryptocurrency.core.common.map
+import com.kbcoding.cryptocurrency.core.presentation.BaseViewModel
 import com.kbcoding.cryptocurrency.fetures.coinlist.domain.useCase.GetCoinsUseCase
+import com.kbcoding.cryptocurrency.fetures.coinlist.presentation.coinListScreen.CoinListViewModel.ScreenState
+import com.kbcoding.cryptocurrency.model.Coin
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.update
 import javax.inject.Inject
 
 @HiltViewModel
 class CoinListViewModel @Inject constructor(
     private val getCoinsUseCase: GetCoinsUseCase
-) : ViewModel() {
-
-    private val _state = mutableStateOf(CoinListState())
-    val state: State<CoinListState> = _state
+) : BaseViewModel<ScreenState>() {
 
     init {
         getCoins()
@@ -24,19 +23,23 @@ class CoinListViewModel @Inject constructor(
 
     private fun getCoins() {
         getCoinsUseCase().onEach { result ->
-            when (result) {
-                is com.kbcoding.cryptocurrency.core.common.Resource.Success -> {
-                    _state.value = CoinListState(coins = result.data ?: emptyList())
+            handleResult(
+                result.map { coins ->
+                    ScreenState(coins = coins)
                 }
-                is com.kbcoding.cryptocurrency.core.common.Resource.Error -> {
-                    _state.value = CoinListState(
-                        error = result.message ?: "An unexpected error occurred"
-                    )
-                }
-                is com.kbcoding.cryptocurrency.core.common.Resource.Loading -> {
-                    _state.value = CoinListState(isLoading = true)
-                }
-            }
+            )
         }.launchIn(viewModelScope)
+    }
+
+    data class ScreenState(
+        val coins: List<Coin> = emptyList(),
+    )
+
+    fun clearList(){
+        _stateFlow.update {
+            it.map {
+                it.copy(coins = emptyList())
+            }
+        }
     }
 }

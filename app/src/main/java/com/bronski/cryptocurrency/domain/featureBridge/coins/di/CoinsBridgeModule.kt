@@ -1,6 +1,6 @@
-package com.bronski.cryptocurrency.featureBridge.coins.di
+package com.bronski.cryptocurrency.domain.featureBridge.coins.di
 
-import com.bronski.cryptocurrency.featureBridge.coins.CoinsBridgeRepositoryImpl
+import com.bronski.cryptocurrency.domain.featureBridge.coins.CoinsBridgeRepositoryImpl
 import com.kbcoding.cryptocurrency.fetures.coinlist.domain.repository.CoinsBridgeRepository
 import dagger.Binds
 import dagger.Module

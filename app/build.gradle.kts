@@ -1,10 +1,10 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-//    alias(libs.plugins.jetbrains.kotlin.kapt)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
     alias(libs.plugins.compose.compiller)
+    alias(libs.plugins.jetbrains.kotlin.serailization)
 }
 
 android {
@@ -15,8 +15,8 @@ android {
         applicationId = "com.bronski.cryptocurrency"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "2.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -29,6 +29,9 @@ android {
             isMinifyEnabled = false
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
+        debug {
+            isMinifyEnabled = false
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -40,7 +43,7 @@ android {
     buildFeatures {
         compose = true
     }
-    packagingOptions {
+    packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
         }
@@ -49,12 +52,16 @@ android {
 
 dependencies {
 
+    implementation(libs.kotlinx.serialization.core)
+
     // Compose dependencies
     implementation(libs.androidx.navigation.compose)
 
     // Hilt
     implementation(libs.hilt)
     ksp(libs.hilt.compiler)
+
+    implementation(libs.androidx.material3.android)
 
     // Retrofit
     compileOnly(libs.retrofit2)
@@ -74,4 +81,5 @@ dependencies {
     implementation(projects.data)
     implementation(projects.features.coinList)
     implementation(projects.features.coinDetail)
+    implementation(projects.features.favorite)
 }

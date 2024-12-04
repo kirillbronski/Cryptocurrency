@@ -1,8 +1,16 @@
 package com.kbcoding.cryptocurrency.data.coins.source
 
+import com.kbcoding.cryptocurrency.api.CoinPaprikaApi
+import com.kbcoding.cryptocurrency.mappers.toCoinDetail
 import com.kbcoding.cryptocurrency.model.CoinDetail
+import javax.inject.Inject
 
-interface CoinRemoteDataSource {
+class CoinRemoteDataSource @Inject constructor(
+    private val api: CoinPaprikaApi
+) {
 
-    suspend fun getCoinById(coinId: String): CoinDetail
+    suspend fun getCoinById(coinId: String): CoinDetail {
+        return api.getCoinById(coinId).toCoinDetail()
+    }
+
 }

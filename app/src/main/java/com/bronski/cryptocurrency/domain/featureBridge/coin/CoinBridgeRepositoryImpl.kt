@@ -1,4 +1,4 @@
-package com.bronski.cryptocurrency.featureBridge.coin
+package com.bronski.cryptocurrency.domain.featureBridge.coin
 
 import com.kbcoding.cryptocurrency.data.coins.domain.repository.CoinDataRepository
 import com.kbcoding.cryptocurrency.features.coindetail.domain.repository.CoinBridgeRepository
