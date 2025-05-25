@@ -9,7 +9,7 @@ plugins {
 
 android {
     namespace = "com.bronski.cryptocurrency"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.bronski.cryptocurrency"
@@ -33,12 +33,8 @@ android {
             isMinifyEnabled = false
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-    kotlinOptions {
-        jvmTarget = "17"
+    kotlin {
+        jvmToolchain(17)
     }
     buildFeatures {
         compose = true
@@ -49,6 +45,10 @@ android {
         }
     }
 }
+
+//tasks.withType<JavaCompile>().configureEach {
+//    options.compilerArgs.add("-Xlint:deprecation")
+//}
 
 dependencies {
 

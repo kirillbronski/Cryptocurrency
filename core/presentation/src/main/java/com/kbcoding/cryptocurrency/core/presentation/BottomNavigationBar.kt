@@ -1,20 +1,21 @@
 package com.kbcoding.cryptocurrency.core.presentation
 
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.material.BottomNavigation
 import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Person
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.kbcoding.cryptocurrency.core.presentation.ui.theme.TextWhite
 import kotlin.reflect.KClass
 
 @Composable
@@ -26,13 +27,14 @@ fun BottomNavigationBar(navController: NavController) {
     )
 
     BottomNavigation(
-        modifier = Modifier.height(56.dp)
+        modifier = Modifier.navigationBarsPadding(),
+        backgroundColor =  MaterialTheme.colorScheme.primary,
     ) {
         val currentRoute = navController.currentBackStackEntryAsState().value.routeClass()
         items.forEach { item ->
             BottomNavigationItem(
-                icon = { Icon(item.icon, contentDescription = item.title) },
-                label = { Text(item.title) },
+                icon = { Icon(item.icon, contentDescription = item.title, tint = TextWhite) },
+                label = { Text(item.title, color = TextWhite) },
                 selected = currentRoute == item.route,
                 onClick = {
                     if (currentRoute != item.route) {

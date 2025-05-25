@@ -15,6 +15,7 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import com.kbcoding.cryptocurrency.core.presentation.ui.theme.TextWhite
 
 sealed class NavigateUpAction {
     data object Hidden : NavigateUpAction()
@@ -30,7 +31,7 @@ fun AppToolbar(
 
     CenterAlignedTopAppBar(
         title = {
-            Text(text = titleRes)
+            Text(text = titleRes, color = TextWhite)
         },
         navigationIcon = {
             if (navigateUpAction is NavigateUpAction.Visible) {
@@ -45,7 +46,7 @@ fun AppToolbar(
             }
         },
         colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer
+            containerColor = MaterialTheme.colorScheme.primary
         ),
         modifier = Modifier
 //            .drawBehind {

@@ -4,11 +4,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Surface
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
@@ -44,7 +47,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             CryptocurrencyThemeNew {
-                Surface(color = MaterialTheme.colors.background) {
+                Surface(color = MaterialTheme.colorScheme.background) {
                     CryptocurrencyApp()
                 }
             }
@@ -60,6 +63,7 @@ fun CryptocurrencyApp() {
     val titleRes = getTitleRes(currentBackStackEntry)
 
     Scaffold(
+        contentWindowInsets = WindowInsets.navigationBars,
         topBar = {
             AppToolbar(
                 titleRes = titleRes,
@@ -85,6 +89,7 @@ fun CryptocurrencyApp() {
                 modifier = Modifier
                     .fillMaxSize()
                     .padding(paddingValues)
+                    .consumeWindowInsets(paddingValues)
             ) {
                 composable<RouteCoins> { CoinListScreen() }
                 composable<RouteCoinDetail> { navBackStackEntry ->
