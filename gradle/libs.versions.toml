@@ -55,6 +55,9 @@ androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = 
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
+plugin-android = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
+plugin-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
@@ -64,4 +67,5 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltVer" }
 compose-compiller = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+conventions-androidLibrary = { id = "com.uandcode.conventions.android.library", version = "unspecified" }
 

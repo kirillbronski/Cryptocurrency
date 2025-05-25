@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-conventions")
     repositories {
         google {
             content {
@@ -18,6 +19,8 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
+gradle.startParameter.excludedTaskNames.add(":build-conventions:plugins:testClasses")
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
