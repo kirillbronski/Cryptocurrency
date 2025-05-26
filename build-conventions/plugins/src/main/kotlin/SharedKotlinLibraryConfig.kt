@@ -2,7 +2,6 @@ import org.gradle.accessors.dm.LibrariesForLibs
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
-import org.gradle.api.plugins.JavaPlugin
 import org.gradle.api.plugins.JavaPluginExtension
 import org.gradle.api.plugins.PluginManager
 import org.gradle.api.provider.Provider
@@ -25,7 +24,8 @@ class SharedKotlinLibraryConfig : Plugin<Project> {
     }
 
     private fun Project.applyPlugins(libs: LibrariesForLibs) = with(pluginManager) {
-        apply(JavaPlugin::class.java)
+        //apply(JavaPlugin::class.java)
+        alias(libs.plugins.java.library)
         alias(libs.plugins.jetbrains.kotlin.jvm)
     }
 
