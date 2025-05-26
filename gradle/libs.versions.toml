@@ -70,5 +70,7 @@ hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltVer" }
 compose-compiller = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 conventions-androidLibrary = { id = "com.kbcoding.cryptocurrency.android.library", version = "unspecified" }
 conventions-kotlinLibrary = { id = "com.kbcoding.cryptocurrency.kotlin.library", version = "unspecified" }
+
 java-library = { id = "java-library" }
+custom-kotlin-script = { id = "custom-kotlin-script" }
 
