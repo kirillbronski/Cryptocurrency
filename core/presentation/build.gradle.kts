@@ -1,30 +1,12 @@
 plugins {
-    alias(libs.plugins.androidLibrary)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    alias(libs.plugins.conventions.androidLibrary)
     alias(libs.plugins.compose.compiller)
     alias(libs.plugins.jetbrains.kotlin.serailization)
 }
 
 android {
     namespace = "com.kbcoding.cryptocurrency.core.presentation"
-    compileSdk = 35
 
-    defaultConfig {
-        minSdk = 24
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-        }
-    }
-    kotlin {
-        jvmToolchain(17)
-    }
     buildFeatures {
         compose = true
     }

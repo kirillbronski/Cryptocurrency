@@ -57,6 +57,7 @@ material = { group = "com.google.android.material", name = "material", version.r
 
 plugin-android = { group = "com.android.tools.build", name = "gradle", version.ref = "agp" }
 plugin-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
+plugin-kotlin-jvm = { module = "org.jetbrains.kotlin.jvm:org.jetbrains.kotlin.jvm.gradle.plugin", version.ref = "kotlin" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -67,5 +68,6 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltVer" }
 compose-compiller = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-conventions-androidLibrary = { id = "com.uandcode.conventions.android.library", version = "unspecified" }
+conventions-androidLibrary = { id = "com.kbcoding.cryptocurrency.android.library", version = "unspecified" }
+conventions-kotlinLibrary = { id = "com.kbcoding.cryptocurrency.kotlin.library", version = "unspecified" }
 

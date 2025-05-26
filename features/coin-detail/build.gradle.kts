@@ -1,34 +1,11 @@
 plugins {
-    alias(libs.plugins.androidLibrary)
-    alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.ksp)
-    alias(libs.plugins.hilt)
+    alias(libs.plugins.conventions.androidLibrary)
     alias(libs.plugins.compose.compiller)
 }
 
 android {
     namespace = "com.kbcoding.cryptocurrency.features.coindetail"
-    compileSdk = 35
 
-    defaultConfig {
-        minSdk = 24
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        consumerProguardFiles("consumer-rules.pro")
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
-        }
-    }
-    kotlin {
-        jvmToolchain(17)
-    }
     buildFeatures {
         compose = true
     }
@@ -39,8 +16,8 @@ dependencies {
     implementation(libs.google.accompanist.flowlayout)
 
     // Hilt
-    implementation(libs.hilt)
-    ksp(libs.hilt.compiler)
+//    implementation(libs.hilt)
+//    ksp(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
 
     implementation(projects.core.common)

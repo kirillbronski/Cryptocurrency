@@ -47,12 +47,17 @@ class SharedAndroidLibraryConfig : Plugin<Project> {
             sourceCompatibility = JavaVersion.VERSION_17
             targetCompatibility = JavaVersion.VERSION_17
         }
+
+        buildFeatures {
+            buildConfig = true
+        }
     }
 
     private fun Project.applyKotlinConfig() = configure<KotlinAndroidProjectExtension> {
         compilerOptions {
             jvmTarget = JvmTarget.JVM_17
         }
+
     }
 
     private fun Project.applyDependencies(libs: LibrariesForLibs) = dependencies {
