@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Ensure the script exits if any command fails
+set -e
+
+# Path to the JAR file
+JAR_FILE="createModule.jar"
+
+# Check if the JAR file exists
+if [[ ! -f "$JAR_FILE" ]]; then
+  echo "Error: $JAR_FILE not found!"
+  exit 1
+fi
+
+# Execute the JAR file with all passed arguments
+java -jar "$JAR_FILE" "$@"

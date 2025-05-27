@@ -1,7 +1,6 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
-    alias(libs.plugins.hilt)
+    alias(libs.plugins.custom.android.application)
+    alias(libs.plugins.hilt.android)
     alias(libs.plugins.ksp)
     alias(libs.plugins.compose.compiller)
     alias(libs.plugins.jetbrains.kotlin.serailization)
@@ -9,40 +8,10 @@ plugins {
 
 android {
     namespace = "com.bronski.cryptocurrency"
-    compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.bronski.cryptocurrency"
-        minSdk = 26
-        targetSdk = 34
         versionCode = 2
         versionName = "2.0.0"
-
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        vectorDrawables {
-            useSupportLibrary = true
-        }
-    }
-
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-        }
-        debug {
-            isMinifyEnabled = false
-        }
-    }
-    kotlin {
-        jvmToolchain(17)
-    }
-    buildFeatures {
-        compose = true
-    }
-    packaging {
-        resources {
-            excludes += "/META-INF/{AL2.0,LGPL2.1}"
-        }
     }
 }
 

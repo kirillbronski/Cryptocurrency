@@ -23,6 +23,7 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 rootProject.name = "Cryptocurrency"
 include(":app")
+include(":templates:script")
 include(":core:common")
 include(":core:presentation")
 include(":api")

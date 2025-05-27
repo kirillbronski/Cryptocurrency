@@ -48,20 +48,36 @@ hilt-navigation-compose = { group = "androidx.hilt", name = "hilt-navigation-com
 
 javax-inject = { module = "javax.inject:javax.inject", version.ref = "javaxInject" }
 
-kotlinx-serialization-core = { module ="org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "ktxSerialization" }
+kotlinx-serialization-core = { module = "org.jetbrains.kotlinx:kotlinx-serialization-core", version.ref = "ktxSerialization" }
 androidx-material3-android = { group = "androidx.compose.material3", name = "material3-android", version.ref = "material3Android" }
 androidx-lifecycle-runtime-compose-android = { group = "androidx.lifecycle", name = "lifecycle-runtime-compose-android", version.ref = "lifecycleRuntimeComposeAndroid" }
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
+plugin-android-application = { module = "com.android.application:com.android.application.gradle.plugin", version.ref = "agp" }
+plugin-android-library = { module = "com.android.library:com.android.library.gradle.plugin", version.ref = "agp" }
+plugin-kotlin-android = { module = "org.jetbrains.kotlin.android:org.jetbrains.kotlin.android.gradle.plugin", version.ref = "kotlin" }
+plugin-kotlin-compose = { module = "org.jetbrains.kotlin.plugin.compose:org.jetbrains.kotlin.plugin.compose.gradle.plugin", version.ref = "kotlin" }
+plugin-kotlin-jvm = { module = "org.jetbrains.kotlin.jvm:org.jetbrains.kotlin.jvm.gradle.plugin", version.ref = "kotlin" }
+plugin-hilt-android = { module = "com.google.dagger.hilt.android:com.google.dagger.hilt.android.gradle.plugin", version.ref = "hiltVer" }
+plugin-ksp = { module = "com.google.devtools.ksp:com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+plugin-kotlin-serialization = { module = "org.jetbrains.kotlin.plugin.serialization:org.jetbrains.kotlin.plugin.serialization.gradle.plugin", version.ref = "kotlin" }
+
 [plugins]
-android-application = { id = "com.android.application", version.ref = "agp" }
-jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
-jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
-jetbrains-kotlin-serailization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
-androidLibrary = { id = "com.android.library", version.ref = "agp" }
-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltVer" }
-compose-compiller = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+#android-application = { id = "com.android.application", version.ref = "agp" }
+#jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+#jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+#androidLibrary = { id = "com.android.library", version.ref = "agp" }
+#ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+#hilt = { id = "com.google.dagger.hilt.android", version.ref = "hiltVer" }
+
+custom-android-application = { id = "custom-android-application" }
+custom-android-library = { id = "custom-android-library" }
+custom-kotlin-library = { id = "custom-kotlin-library" }
+custom-kotlin-script = { id = "custom-kotlin-script" }
+hilt-android = { id = "com.google.dagger.hilt.android" }
+ksp = { id = "com.google.devtools.ksp" }
+jetbrains-kotlin-serailization = { id = "org.jetbrains.kotlin.plugin.serialization" }
+compose-compiller = { id = "org.jetbrains.kotlin.plugin.compose" }
 
